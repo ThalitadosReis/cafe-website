@@ -10,7 +10,6 @@ export default function Home() {
       {/* about section */}
       <div className="relative z-0 bg-white/95 backdrop-blur-sm p-8 md:p-12">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
           <div className="space-y-6">
             <div className="text-center md:text-left">
               <p className="text-grenadine font-light tracking-widest uppercase text-sm mb-2">
@@ -46,7 +45,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Image */}
           <div className="relative">
             <img
               src={cafeImage}
