@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth@0,75;1,75&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:opsz,wght@18..144,300&display=swap');
 
 @import "tailwindcss";
 
@@ -7,4 +9,6 @@
     --color-shadow: #101415;
 
     --font-openSans: 'Open Sans', sans-serif;
+    --font-oswald: 'Oswald', sans-serif;
+    --font-merriweather: 'Merriweather', serif;
 }

@@ -78,11 +78,11 @@ export default function Navbar() {
 
       {/* mobile-menu slide-down */}
       <div
-        className={`w-full bg-shadow z-40 transform transition-transform duration-300 ease-in-out md:hidden uppercase font-openSans ${
+        className={`fixed top-0 left-0 w-full bg-shadow z-40 transform transition-transform duration-300 ease-in-out md:hidden uppercase font-openSans ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="px-8 space-y-2">
+        <div className="px-8 space-y-2 pt-16 pb-4">
           {navItems.map((item, index) => (
             <Link
               key={item.key}
