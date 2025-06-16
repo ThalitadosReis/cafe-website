@@ -1,1 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth@0,75;1,75&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+    --color-grenadine: #e76f51;
+    --color-shadow: #101415;
+
+    --font-openSans: 'Open Sans', sans-serif;
+}
