@@ -84,14 +84,14 @@ export default function Slider() {
       {/* nav-arrows */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white hover:-translate-x-1 transition-transform duration-300 cursor-pointer"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white hover:-translate-x-1 transition-transform duration-300 cursor-pointer hidden md:block"
         aria-label="Previous slide"
       >
         <IoIosArrowRoundBack className="text-4xl" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white hover:translate-x-1 transition-transform duration-300 cursor-pointer"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white hover:translate-x-1 transition-transform duration-300 cursor-pointer hidden md:block"
         aria-label="Next slide"
       >
         <IoIosArrowRoundForward className="text-4xl" />

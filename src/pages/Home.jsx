@@ -3,7 +3,7 @@ import Slider from "../components/Slider";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto bg-white">
+    <div className="bg-white">
       {/* hero section */}
       <Slider />
 
@@ -12,8 +12,8 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="text-center md:text-left">
-              <p className="text-grenadine font-light tracking-widest uppercase text-sm mb-2">
-                What Happens Here
+              <p className="text-grenadine font-openSans tracking-wider uppercase text-sm mb-2">
+                About Us
               </p>
               <h2 className="text-3xl md:text-4xl font-oswald uppercase mb-4">
                 Coffee and Brunch in the Heart of the City
