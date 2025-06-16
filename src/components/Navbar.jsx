@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiX, HiOutlineMenu } from "react-icons/hi";
 import Logo from "../assets/t-logo-white.png";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,8 +34,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full z-50 transition-all duration-300 uppercase font-openSans">
-        <div className="container mx-auto px-4 lg:px-16">
+      <nav className="w-full z-50 transition-all duration-300 uppercase font-openSans bg-shadow md:bg-transparent">
+        <div className="container mx-auto px-8">
           <div className="flex justify-between items-center h-16">
             {/* logo */}
             <div className="flex-shrink-0">
@@ -65,9 +66,9 @@ export default function Navbar() {
                 className="text-white hover:text-white/90"
               >
                 {isMenuOpen ? (
-                  <HiX className="h-6 w-6" />
+                  <HiX className="h-5 w-5" />
                 ) : (
-                  <HiOutlineMenu className="h-6 w-6" />
+                  <HiOutlineMenu className="h-5 w-5" />
                 )}
               </button>
             </div>
@@ -75,23 +76,28 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* mobile-menu slide-in */}
+      {/* mobile-menu slide-down */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-shadow z-40 transform transition-transform duration-300 ease-in-out md:hidden uppercase font-openSans ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`w-full bg-shadow z-40 transform transition-transform duration-300 ease-in-out md:hidden uppercase font-openSans ${
+          isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="pt-20 px-6 space-y-4">
-          {navItems.map((item) => (
+        <div className="px-8 space-y-2">
+          {navItems.map((item, index) => (
             <Link
               key={item.key}
               to={item.to}
-              className={`block px-3 py-2 text-base ${getNavLinkClasses(
+              className={`flex items-center justify-between py-1 text-sm ${getNavLinkClasses(
                 item.to
-              )}`}
+              )} ${
+                index !== navItems.length - 1 ? "border-b border-white/20" : ""
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              {item.name}
+              <span>{item.name}</span>
+              {!isActiveRoute(item.to) && (
+                <MdKeyboardArrowRight className="text-xl" />
+              )}
             </Link>
           ))}
         </div>
