@@ -1,32 +1,30 @@
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
-import cafeImage from "../assets/cafe-home.jpg";
-import cafeImage1 from "../assets/cafe-home1.jpg";
 
 const slides = [
   {
     id: 1,
     title: "Friendly Atmosphere",
     text: "Experience the perfect blend of premium coffee and cozy atmosphere",
-    image: cafeImage,
+    image: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
     title: "Artisan Coffee",
     text: "Brewed to perfection with handpicked beans from around the world",
-    image: cafeImage1,
+    image: "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
     title: "Cozy Corners",
     text: "Find your favorite nook and enjoy the ambiance",
-    image: cafeImage,
+    image: "https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
     title: "Community Vibes",
     text: "A place to connect, create, and caffeinate together",
-    image: cafeImage1,
+    image: "https://images.unsplash.com/photo-1533117259300-57a7476bc78d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 

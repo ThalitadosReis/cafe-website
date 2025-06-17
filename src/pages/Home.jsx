@@ -1,4 +1,3 @@
-import cafeImage from "../assets/cafe-home.jpg";
 import Slider from "../components/Slider";
 
 export default function Home() {
@@ -47,8 +46,8 @@ export default function Home() {
 
           <div className="relative">
             <img
-              src={cafeImage}
-              alt="Brewtopia Cafe Storefront"
+              src="https://images.unsplash.com/photo-1508766917616-d22f3f1eea14?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Brewtopia Cafe Barista"
               className="w-full h-96 object-cover"
             />
           </div>
