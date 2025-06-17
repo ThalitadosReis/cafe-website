@@ -3,12 +3,12 @@ import Slider from "../components/Slider";
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <>
       {/* hero section */}
       <Slider />
 
       {/* about section */}
-      <div className="relative z-0 bg-white/95 backdrop-blur-sm p-8 md:p-12">
+      <div className="bg-white p-8 md:p-12">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="text-center md:text-left">
@@ -54,6 +54,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
