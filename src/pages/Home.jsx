@@ -138,15 +138,15 @@ export default function Home() {
 
       {/* gallery section */}
       <section className="py-8 md:py-12 px-2">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:h-[500px]">
-          <div className="lg:col-span-2 lg:row-span-2 relative overflow-hidden h-48 lg:h-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 lg:h-[500px]">
+          <div className="md:col-span-2 md:row-span-2 relative overflow-hidden h-48 md:h-full">
             <img
               src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?q=80&w=1416&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Busy coffee shop interior"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="lg:row-span-2 relative overflow-hidden h-48 lg:h-full">
+          <div className="md:row-span-2 relative overflow-hidden h-48 md:h-full">
             <img
               src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Coffee preparation setup with latte art"
