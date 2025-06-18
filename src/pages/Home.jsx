@@ -98,14 +98,14 @@ export default function Home() {
             <div key={title} className="space-y-4">
               <div className="flex flex-col items-center gap-3">
                 <img src={img} alt={title} className="w-14 h-14" />
-                <h3 className="text-lg font-merriweather text-grenadine/80">
+                <h3 className="text-lg font-merriweather text-grenadine">
                   {title}
                 </h3>
               </div>
               <p className="text-xs">{description}</p>
               <Link
                 to="/menu"
-                className="group inline-flex items-center gap-1 text-xs uppercase font-oswald text-grenadine/80 px-4 py-2 transition-all duration-300 relative overflow-hidden"
+                className="group inline-flex items-center gap-1 text-xs uppercase font-oswald text-grenadine px-4 py-2 transition-all duration-300 relative overflow-hidden"
               >
                 <span className="relative px-1 cursor-pointer">
                   <span className="relative z-10">Read More</span>
