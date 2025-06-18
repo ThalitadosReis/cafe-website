@@ -1,4 +1,4 @@
-import { BsArrowUp, BsInstagram } from "react-icons/bs";
+import { BsArrowUp, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {
   return (
@@ -79,19 +79,25 @@ export default function Footer() {
 
       <div className="bg-shadow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm mb-4 md:mb-0">© Brewtopia</p>
-
-          <div className="flex space-x-4 mb-4 md:mb-0">
+          <p className="text-xs mb-4 md:mb-0">
+            © Brewtopia · 2025 All Rights Reserved
+          </p>
+          <div className="flex space-x-4">
             <a
               href="#"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-white/60 hover:text-white transition-colors"
               aria-label="Instagram"
             >
               <BsInstagram size={20} />
             </a>
+            <a
+              href="#"
+              className="text-white/60 hover:text-white transition-colors"
+              aria-label="Instagram"
+            >
+              <BsLinkedin size={20} />
+            </a>
           </div>
-
-          <p className="text-sm">2025 All Rights Reserved</p>
         </div>
       </div>
     </footer>
