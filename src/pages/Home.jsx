@@ -62,7 +62,7 @@ export default function Home() {
         </h2>
         <div className="w-20 h-0.5 bg-grenadine mb-8 mx-auto"></div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-12 text-center">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-12 text-center">
           {[
             {
               title: "Coffee To Go",
@@ -103,20 +103,70 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-xs">{description}</p>
-              <Link
-                to="/menu"
-                className="group inline-flex items-center gap-1 text-xs uppercase font-oswald text-grenadine px-4 py-2 transition-all duration-300 relative overflow-hidden"
-              >
-                <span className="relative px-1 cursor-pointer">
-                  <span className="relative z-10">Read More</span>
-                  <div className="absolute top-0 left-0 h-full w-[15%] bg-grenadine/20 group-hover:w-[75%] transition-all duration-300"></div>
-                </span>
-                <div className="transition-transform duration-300 transform group-hover:translate-x-1 cursor-pointer">
-                  <RiArrowRightLine className="w-4 h-4" />
-                </div>
-              </Link>
             </div>
           ))}
+          <div className="space-y-4">
+            <div className="flex flex-col items-center gap-3">
+              <img
+                src="https://img.icons8.com/external-wanicon-lineal-wanicon/100/1A1A1A/external-menu-coffee-shop-wanicon-lineal-wanicon.png"
+                alt="Full Menu"
+                className="w-14 h-14"
+              />
+              <h3 className="text-lg font-merriweather text-grenadine">
+                Full Menu
+              </h3>
+            </div>
+            <p className="text-xs mb-4">
+              Explore our complete menu with detailed descriptions, prices, and
+              seasonal specialties.
+            </p>
+            <Link
+              to="/menu"
+              className="group inline-flex items-center gap-1 text-xs uppercase font-oswald text-grenadine px-4 py-2 transition-all duration-300 relative overflow-hidden"
+            >
+              <span className="relative px-1 cursor-pointer">
+                <span className="relative z-10">View Full Menu</span>
+                <div className="absolute top-0 left-0 h-full w-[15%] bg-grenadine/20 group-hover:w-[75%] transition-all duration-300"></div>
+              </span>
+              <div className="transition-transform duration-300 transform group-hover:translate-x-1 cursor-pointer">
+                <RiArrowRightLine className="w-4 h-4" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* gallery section */}
+      <section className="py-8 md:py-12 px-2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:h-[500px]">
+          <div className="lg:col-span-2 lg:row-span-2 relative overflow-hidden h-48 lg:h-full">
+            <img
+              src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?q=80&w=1416&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Busy coffee shop interior"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="lg:row-span-2 relative overflow-hidden h-48 lg:h-full">
+            <img
+              src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Coffee preparation setup with latte art"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative overflow-hidden h-48 lg:h-full">
+            <img
+              src="https://images.unsplash.com/photo-1598959652545-c0230cdbb01f?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Coffee shop counter"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative overflow-hidden h-48 lg:h-full">
+            <img
+              src="https://images.unsplash.com/photo-1542372147193-a7aca54189cd?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Coffee shop seating area"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
     </div>

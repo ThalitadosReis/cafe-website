@@ -3,14 +3,15 @@ import { BsArrowUp, BsInstagram, BsLinkedin } from "react-icons/bs";
 export default function Footer() {
   return (
     <footer className="bg-shadow/80 text-white">
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bg-grenadine hover:bg-grenadine/90 text-white p-3 transition-colors shadow-lg z-50 lg:bottom-12 lg:right-8"
-        aria-label="Back to top"
-      >
-        <BsArrowUp size={20} />
-      </button>
-
+      <div className="relative px-12">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="absolute right-0 top-0 transform -translate-y-1/2 bg-grenadine hover:bg-grenadine/90 text-white p-3 transition-colors z-50"
+          aria-label="Back to top"
+        >
+          <BsArrowUp size={20} />
+        </button>
+      </div>
       <div className="px-12 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
@@ -34,13 +35,14 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
           <div>
             <h3 className="text-white font-bold text-lg mb-4 tracking-wider uppercase font-openSans">
               Contact Us
             </h3>
             <div className="space-y-4 text-sm">
-              <p className="text-grenadine">info@brewtopia.com</p>
+              <p className="text-grenadine">
+                <a href="mailto:">brewtopia@example.com</a>
+              </p>
               <p>+41 12 345 6789</p>
               <p>
                 Bahnhofstrasse 1, 8001
@@ -49,7 +51,6 @@ export default function Footer() {
               </p>
             </div>
           </div>
-
           <div className="md:col-span-2 mb-10">
             <h3 className="text-white font-bold text-lg mb-4 tracking-wider uppercase font-openSans">
               Where to Find Us
