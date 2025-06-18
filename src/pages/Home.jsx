@@ -138,7 +138,7 @@ export default function Home() {
 
       {/* gallery section */}
       <section className="py-8 md:py-12 px-2">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:h-[500px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 lg:h-[500px]">
           <div className="lg:col-span-2 lg:row-span-2 relative overflow-hidden h-48 lg:h-full">
             <img
               src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?q=80&w=1416&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
