@@ -1,4 +1,4 @@
-# Brewtopia
+![Website Logo](/src/assets/t-logo-white.png)
 
 A modern, React-powered template designed to streamline the development of stylish, responsive cafe websites. Built with Vite for blazing-fast builds and hot module replacement, it provides a solid foundation for creating engaging online experiences.
 
