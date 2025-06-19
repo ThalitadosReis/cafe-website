@@ -1,11 +1,5 @@
 # Brewtopia
 
-*Savor Innovation, Brew Excellence, Experience More*
-
-![Last Commit](https://img.shields.io/badge/last%20commit-yesterday-brightgreen)
-![JavaScript](https://img.shields.io/badge/javascript-97.6%25-yellow)
-![Languages](https://img.shields.io/badge/languages-3-blue)
-
 A modern, React-powered template designed to streamline the development of stylish, responsive cafe websites. Built with Vite for blazing-fast builds and hot module replacement, it provides a solid foundation for creating engaging online experiences.
 
 ## 🌐 [Live Preview ](https://brewtopiacafe.netlify.app/)
