@@ -4,7 +4,7 @@ A modern, React-powered template designed to streamline the development of styli
 
 ## 🌐 [Live Preview ](https://brewtopiacafe.netlify.app/)
 
-![Website Preview](/src/assets/mockup.png)
+![Website Preview](https://res.cloudinary.com/douen1dwv/image/upload/v1753627902/default/Brewtopia-Full-Screenshot_yxtxej.png)
 
 ## ✨ Features
 
