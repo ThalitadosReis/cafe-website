@@ -1,4 +1,4 @@
-import { BsArrowUp, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsArrowUp } from "react-icons/bs";
 
 export default function Footer() {
   return (
@@ -79,26 +79,9 @@ export default function Footer() {
       </div>
 
       <div className="bg-shadow">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-xs mb-4 md:mb-0">
-            © Brewtopia · 2025 All Rights Reserved
-          </p>
-          <div className="flex space-x-4">
-            <a
-              href="#"
-              className="text-white/60 hover:text-white transition-colors"
-              aria-label="Instagram"
-            >
-              <BsInstagram size={20} />
-            </a>
-            <a
-              href="#"
-              className="text-white/60 hover:text-white transition-colors"
-              aria-label="Instagram"
-            >
-              <BsLinkedin size={20} />
-            </a>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center text-sm space-y-2">
+          <p>© Brewtopia · 2025 All Rights Reserved</p>
+          <span>Made by Thalita dos Reis</span>
         </div>
       </div>
     </footer>
