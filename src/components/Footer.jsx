@@ -1,4 +1,4 @@
-import { BsArrowUp } from "react-icons/bs";
+import { BsArrowUp, BsArrowUpRight } from "react-icons/bs";
 
 export default function Footer() {
   return (
@@ -81,7 +81,20 @@ export default function Footer() {
       <div className="bg-shadow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center text-sm space-y-2">
           <p>© Brewtopia · 2025 All Rights Reserved</p>
-          <span>Made by Thalita dos Reis</span>
+          <p className="text-xs font-ui text-taupe-500 md:text-right">
+            <a
+              href="https://thalitadosreis.ch/"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-taupe-700"
+            >
+              Made by Thalita dos Reis
+              <BsArrowUpRight
+                size={12}
+                className="inline-block ml-1 text-taupe-500"
+              />
+            </a>
+          </p>
         </div>
       </div>
     </footer>
