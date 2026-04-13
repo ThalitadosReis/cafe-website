@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth@0,75;1,75&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:opsz,wght@18..144,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap');
 
 @import "tailwindcss";
 
 @theme {
     --color-grenadine: #e76f51;
     --color-shadow: #101415;
+    --color-cream: #f4efe9;
 
-    --font-openSans: 'Open Sans', sans-serif;
-    --font-oswald: 'Oswald', sans-serif;
-    --font-merriweather: 'Merriweather', serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-body);
+    }
 }
