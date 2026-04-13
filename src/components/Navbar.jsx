@@ -1,103 +1,123 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiX, HiOutlineMenu } from "react-icons/hi";
 import Logo from "../assets/t-logo-white.png";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
+const NAV_ITEMS = [
+  { name: "Home", to: "/" },
+  { name: "Menu", to: "/menu" },
+  { name: "Contact", to: "/contact" },
+];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { name: "Home", to: "/", key: "home" },
-    { name: "Menu", to: "/menu", key: "menu" },
-    { name: "Gallery", to: "/gallery", key: "gallery" },
-    { name: "Contact Us", to: "/contact", key: "contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const isActiveRoute = (itemTo) => {
-    if (itemTo === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname.startsWith(itemTo);
-  };
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
-  const getNavLinkClasses = (itemTo) => {
-    const baseClasses = "hover:text-grenadine transition-colors duration-200";
-    const activeClasses = "text-grenadine";
-    const inactiveClasses = "text-white";
+  // lock body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
-    return `${baseClasses} ${
-      isActiveRoute(itemTo) ? activeClasses : inactiveClasses
+  const isActive = (to) =>
+    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
+
+  const linkClass = (to) =>
+    `text-[10px] font-body tracking-[0.25em] uppercase transition-colors duration-200 hover:text-grenadine ${
+      isActive(to) ? "text-grenadine" : "text-white"
     }`;
-  };
 
   return (
     <>
-      <nav className="w-full z-50 transition-all duration-300 uppercase font-openSans bg-shadow md:bg-transparent">
-        <div className="container mx-auto px-8">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-shadow/95 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="relative z-50 mx-auto px-8 md:px-12">
           <div className="flex justify-between items-center h-16">
-            {/* logo */}
-            <div className="flex-shrink-0">
-              <Link to="/">
-                <img src={Logo} alt="Brewtopia Logo" className="h-5" />
-              </Link>
+            <Link
+              to="/"
+              className="relative z-50 flex-shrink-0"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <img src={Logo} alt="Brewtopia" className="h-4" />
+            </Link>
+
+            {/* desktop links */}
+            <div className="hidden md:flex items-center gap-8">
+              {NAV_ITEMS.map((item) => (
+                <Link key={item.to} to={item.to} className={linkClass(item.to)}>
+                  {item.name}
+                </Link>
+              ))}
             </div>
 
-            {/* menu */}
-            <div className="hidden md:block">
-              <div className="flex items-baseline space-x-6">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.key}
-                    to={item.to}
-                    className={getNavLinkClasses(item.to)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* mobile-menu buttons */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-white/90"
-              >
-                {isMenuOpen ? (
-                  <HiX className="h-5 w-5" />
-                ) : (
-                  <HiOutlineMenu className="h-5 w-5" />
-                )}
-              </button>
-            </div>
+            {/* mobile toggle */}
+            <button
+              onClick={() => setIsMenuOpen((o) => !o)}
+              className="relative z-50 cursor-pointer text-white transition-colors hover:text-white/75 md:hidden"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <HiX className="h-5 w-5" />
+              ) : (
+                <HiOutlineMenu className="h-5 w-5" />
+              )}
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* mobile-menu slide-down */}
+      {/* mobile drawer */}
       <div
-        className={`fixed top-0 left-0 w-full bg-shadow z-40 transform transition-transform duration-300 ease-in-out md:hidden uppercase font-openSans ${
-          isMenuOpen ? "translate-y-0" : "-translate-y-full"
+        className={`fixed inset-0 z-30 md:hidden transition-opacity duration-400 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="px-8 space-y-2 pt-16 pb-4">
-          {navItems.map((item, index) => (
+        {/* backdrop */}
+        <div
+          className="absolute inset-0 bg-shadow/80 backdrop-blur-xs"
+          onClick={() => setIsMenuOpen(false)}
+        />
+
+        {/* centered links */}
+        <div className="relative h-full flex flex-col items-center justify-center gap-6">
+          {NAV_ITEMS.map((item, index) => (
             <Link
-              key={item.key}
+              key={item.to}
               to={item.to}
-              className={`flex items-center justify-between py-1 text-sm ${getNavLinkClasses(
-                item.to
-              )} ${
-                index !== navItems.length - 1 ? "border-b border-white/20" : ""
-              }`}
               onClick={() => setIsMenuOpen(false)}
+              style={{
+                transitionDelay: isMenuOpen ? `${80 + index * 60}ms` : "0ms",
+                transform: isMenuOpen ? "translateY(0)" : "translateY(14px)",
+                opacity: isMenuOpen ? 1 : 0,
+              }}
+              className={`transition-all duration-300 font-display text-2xl leading-none ${
+                isActive(item.to)
+                  ? "text-grenadine"
+                  : "text-white hover:text-grenadine"
+              }`}
             >
-              <span>{item.name}</span>
-              {!isActiveRoute(item.to) && (
-                <MdKeyboardArrowRight className="text-xl" />
-              )}
+              {item.name}
             </Link>
           ))}
         </div>
