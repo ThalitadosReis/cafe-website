@@ -138,13 +138,15 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-5 md:px-10">
-        <iframe
-          title="Map showing Brewtopia at Bahnhofstrasse 1, Zürich"
-          src={CAFE.mapEmbedUrl}
-          className="h-56 w-full rounded-card border-0 grayscale-[0.6] sepia-[0.25]"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+        <div className="overflow-hidden rounded-card border border-cream/10">
+          <iframe
+            title="Map showing Brewtopia at Bahnhofstrasse 1, Zürich"
+            src={CAFE.mapEmbedUrl}
+            className="block h-72 w-full border-0 [filter:invert(0.9)_hue-rotate(180deg)_saturate(0.6)_brightness(0.95)] md:h-80"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-8 text-sm text-cream/60 md:flex-row md:justify-between md:px-10">
