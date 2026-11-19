@@ -5,7 +5,7 @@ export const GALLERY = [
   {
     src: unsplash("1677825950108-57a3ed44195e", 1200),
     alt: "Smoked salmon on crumpets with edible flowers",
-    span: "col-span-2 row-span-2",
+    span: "md:col-span-2 md:row-span-2",
   },
   {
     src: unsplash("1618495486072-409db92fc406"),
@@ -40,6 +40,6 @@ export const GALLERY = [
   {
     src: unsplash("1482350325005-eda5e677279b", 1200),
     alt: "Pendant lights glowing inside the café",
-    span: "col-span-2",
+    span: "md:col-span-2",
   },
 ];

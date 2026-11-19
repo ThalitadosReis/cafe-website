@@ -1,19 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,50;1,9..144,300..600,50&family=Jost:wght@400;500;600&display=swap");
 
 @import "tailwindcss";
 
 @theme {
-    --color-grenadine: #e76f51;
-    --color-shadow: #101415;
-    --color-cream: #f4efe9;
+  /* surfaces */
+  --color-shadow: #101415;
+  --color-cream: #f4efe9;
+  --color-sand: #e9e1d6;
 
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Inter', sans-serif;
+  /* text on light surfaces */
+  --color-muted: #5c6163;
+
+  /* accents: bright grenadine on dark, deep grenadine on light (AA contrast) */
+  --color-grenadine: #e76f51;
+  --color-grenadine-deep: #b5462a;
+  --color-grenadine-dark: #9c3b23;
+  --color-open: #8cc084;
+
+  /* one corner radius for every photo, card and tile on the site */
+  --radius-card: 1.5rem;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Arched top with the standard card radius at the bottom. Built for a 4:5 image:
+   40% of the height equals 50% of the width, so the top is a true semicircle and
+   the corners never overflow (which would make the browser shrink all of them). */
+@utility rounded-arch {
+  border-radius: 50% 50% var(--radius-card) var(--radius-card) / 40% 40% var(--radius-card) var(--radius-card);
 }
 
 @layer base {
-    body {
-        font-family: var(--font-body);
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-shadow);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-grenadine);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
