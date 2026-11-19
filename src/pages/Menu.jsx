@@ -1,177 +1,75 @@
-import PageHero from "../components/ui/PageHero";
-import Reveal from "../components/ui/Reveal";
+import { PiCoffee, PiInfo, PiLeaf } from "react-icons/pi";
+import MenuTabs from "../components/menu/MenuTabs";
+import ImageBanner from "../components/ui/ImageBanner";
+import InfoCard from "../components/ui/InfoCard";
+import PhotoBand from "../components/ui/PhotoBand";
+import SectionHeading from "../components/ui/SectionHeading";
 
-const MENU_CATEGORIES = [
+const NOTES = [
   {
-    name: "Coffee & Espresso",
-    items: [
-      {
-        name: "Americano",
-        price: "$3.50",
-        description: "Rich espresso with hot water",
-      },
-      {
-        name: "Cappuccino",
-        price: "$4.25",
-        description: "Espresso with steamed milk and foam",
-      },
-      {
-        name: "Latte",
-        price: "$4.75",
-        description: "Espresso with steamed milk",
-      },
-      {
-        name: "Mocha",
-        price: "$5.25",
-        description: "Espresso with chocolate and steamed milk",
-      },
-    ],
+    icon: PiLeaf,
+    title: "Plant milks included",
+    text: "Oat, almond and lactose-free milk at no extra charge.",
   },
   {
-    name: "Specials",
-    items: [
-      {
-        name: "French Press",
-        price: "$2.95",
-        description: "Full-bodied coffee steeped in a press for rich flavor",
-      },
-      {
-        name: "Turkish Coffee",
-        price: "$4.50",
-        description: "Finely ground coffee simmered with sugar and cardamom",
-      },
-      {
-        name: "Drip Coffee",
-        price: "$3.75",
-        description: "Smooth, classic brewed coffee made fresh daily",
-      },
-      {
-        name: "Tea",
-        price: "$2.75",
-        description: "A selection of herbal and black teas brewed to order",
-      },
-    ],
+    icon: PiInfo,
+    title: "Allergies?",
+    text: "Ask at the counter and we'll walk you through what's in each dish.",
   },
   {
-    name: "Breakfast",
-    items: [
-      {
-        name: "Avocado Toast",
-        price: "$8.50",
-        description: "Fresh avocado on sourdough with tomatoes",
-      },
-      {
-        name: "Eggs Benedict",
-        price: "$12.95",
-        description: "Poached eggs with hollandaise on English muffin",
-      },
-      {
-        name: "Pancakes",
-        price: "$9.75",
-        description: "Fluffy buttermilk pancakes with maple syrup",
-      },
-      {
-        name: "Granola Bowl",
-        price: "$7.25",
-        description: "House-made granola with yogurt and berries",
-      },
-    ],
-  },
-  {
-    name: "Lunch",
-    items: [
-      {
-        name: "Club Sandwich",
-        price: "$11.50",
-        description: "Turkey, bacon, lettuce, tomato on toasted bread",
-      },
-      {
-        name: "Caesar Salad",
-        price: "$10.25",
-        description: "Crisp romaine with parmesan and croutons",
-      },
-      {
-        name: "Grilled Chicken Wrap",
-        price: "$12.75",
-        description: "Grilled chicken with vegetables in tortilla",
-      },
-      {
-        name: "Soup of the Day",
-        price: "$6.95",
-        description: "Ask your server for today's selection",
-      },
-    ],
-  },
-  {
-    name: "Pastries & Desserts",
-    items: [
-      {
-        name: "Croissant",
-        price: "$3.25",
-        description: "Buttery, flaky French pastry",
-      },
-      {
-        name: "Blueberry Muffin",
-        price: "$3.95",
-        description: "Fresh baked with local blueberries",
-      },
-      {
-        name: "Chocolate Cake",
-        price: "$5.50",
-        description: "Rich chocolate layer cake",
-      },
-      {
-        name: "Cheesecake",
-        price: "$6.25",
-        description: "Creamy New York style cheesecake",
-      },
-    ],
+    icon: PiCoffee,
+    title: "Coffee to go",
+    text: "Any filter or espresso drink, in a returnable cup.",
   },
 ];
 
-function MenuItem({ name, price, description }) {
-  return (
-    <div>
-      <div className="flex items-baseline">
-        <h4 className="font-display text-lg text-shadow">{name}</h4>
-        <div className="flex-1 border-b border-dotted border-shadow/25 mx-4" />
-        <span className="font-mono text-sm text-grenadine/75">{price}</span>
-      </div>
-      <p className="text-sm font-body text-shadow/55 leading-relaxed">
-        {description}
-      </p>
-    </div>
-  );
-}
-
+// Same tabs as the home page, but listing every item in each category.
 export default function Menu() {
   return (
     <>
-      <PageHero
-        src="https://images.unsplash.com/photo-1717484909079-d10de22ac3cd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Coffee shop menu spread"
-        title="Our Menu"
-        subtitle="Fresh, locally sourced ingredients crafted into delicious dishes"
-      />
+      <ImageBanner
+        image="https://images.unsplash.com/photo-1717484909079-d10de22ac3cd?q=80&w=2000&auto=format&fit=crop"
+        alt="A cup of coffee held over a wooden board with the menu"
+        kicker="Our menu"
+        title="Coffee, brunch and something sweet"
+      >
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
+          Fresh, locally sourced ingredients, made in-house where we can. Ask at
+          the counter about allergens and today's specials.
+        </p>
+      </ImageBanner>
 
-      <section className="bg-white px-8 md:px-12 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
-          {MENU_CATEGORIES.map((category, index) => (
-            <Reveal key={category.name} delay={index * 60}>
-              <div className="space-y-5">
-                <h3 className="text-xl font-display text-grenadine">
-                  {category.name}
-                </h3>
-                <div className="grid gap-5">
-                  {category.items.map((item) => (
-                    <MenuItem key={item.name} {...item} />
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 md:px-10">
+          <SectionHeading
+            kicker="Choose a category"
+            title="Everything we serve"
+            className="mb-10"
+          />
+          <MenuTabs />
         </div>
       </section>
+
+      <section className="bg-sand py-20 md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:gap-10 md:px-10">
+          <div className="md:col-span-4">
+            <SectionHeading kicker="Good to know" title="Before you order" />
+          </div>
+          <ul className="grid gap-5 sm:grid-cols-3 md:col-span-8">
+            {NOTES.map(({ icon, title, text }) => (
+              <InfoCard key={title} icon={icon} title={title}>
+                {text}
+              </InfoCard>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <PhotoBand
+        image="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2000&auto=format&fit=crop"
+        title="Hungry yet?"
+        links={[{ to: "/contact", label: "Book for a group" }]}
+      />
     </>
   );
 }
